@@ -1,0 +1,5 @@
+module.exports = {
+  DEFAULT: 'NOT STARTED',
+  IN_PROGRESS: 'IN PROGRESS',
+  COMPLETED: 'COMPLETED',
+}
