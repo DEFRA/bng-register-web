@@ -21,7 +21,47 @@ module.exports = {
     post: '/land/legal-agreement',
     view: 'eligibility/legal-agreement',
     redirect: {
-      success: 'legal-agreement',
+      success: 'ownership-proof',
+    }
+  },
+  ownershipProof: {
+    get: '/land/ownership-proof',
+    post: '/land/ownership-proof',
+    view: 'eligibility/ownership-proof',
+    redirect: {
+      success: 'boundary',
+    }
+  },
+  boundary: {
+    get: '/land/boundary',
+    post: '/land/boundary',
+    view: 'eligibility/boundary',
+    redirect: {
+      success: 'biodiversity-metric',
+    }
+  },
+  biodiversityMetric: {
+    get: '/land/biodiversity-metric',
+    post: '/land/biodiversity-metric',
+    view: 'eligibility/biodiversity-metric',
+    redirect: {
+      success: 'habitat-management-plan',
+    }
+  },
+  habitatManagementPlan: {
+    get: '/land/habitat-management-plan',
+    post: '/land/habitat-management-plan',
+    view: 'eligibility/habitat-management-plan',
+    redirect: {
+      success: 'results',
+    }
+  },
+  results: {
+    get: '/land/results',
+    post: '/land/results',
+    view: 'eligibility/results',
+    redirect: {
+      success: 'name',
     }
   }
 }

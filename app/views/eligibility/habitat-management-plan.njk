@@ -1,0 +1,27 @@
+{% extends '_layout.njk' %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block content %}
+    <div class="govuk-body">
+      {% if err %}
+      {% endif %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <form method="POST" action="/land/habitat-management-plan" novalidate>
+            <input type="hidden" name="crumb" value="{{crumb}}"/>
+            {{ govukRadios(radios) }}
+
+            {{ govukButton({
+                text: "Continue",
+                attributes: {
+                  "data-testid": "continue"
+                }
+              }) 
+            }}
+          </form>
+        </div>
+      </div>
+    </div>
+{% endblock %}

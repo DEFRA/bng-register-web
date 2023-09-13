@@ -29,7 +29,6 @@ module.exports = [{
     handler: async (request, h) => {
       const inEngland = request.payload.inEngland
       setInEngland(request, inEngland)
-
       if (inEngland === 'yes') {
         return h.redirect(eligibilityRoutes.redirect.success)
       } else {

@@ -1,7 +1,7 @@
 const Joi = require('joi')
-const eligibilityRoutes = require('./constants/routes').consent
-const eligibilityContent = require('./constants/content').consent
-const { getConsent, setConsent, getInEngland } = require('./constants/session')
+const eligibilityRoutes = require('./constants/routes').habitatManagementPlan
+const eligibilityContent = require('./constants/content').habitatManagementPlan
+const { getHabitatManagementPlan, setHabitatManagementPlan } = require('./constants/session')
 const { getYesNoRadios } = require('../models/form-component/yes-no-radios')
 
 module.exports = [{
@@ -9,8 +9,8 @@ module.exports = [{
   path: eligibilityRoutes.get,
   options: {
     handler: async (request, h) => {
-      const consent = getConsent(request)
-      return h.view(eligibilityRoutes.view, { ...getYesNoRadios(eligibilityContent.title, eligibilityContent.name, consent, null, eligibilityContent.options) })
+      const habitatManagementPlan = setHabitatManagementPlan(request)
+      return h.view(eligibilityRoutes.view, { ...getYesNoRadios(eligibilityContent.title, eligibilityContent.name, habitatManagementPlan, null, eligibilityContent.options) })
     }
   }
 },
@@ -20,15 +20,15 @@ module.exports = [{
   options: {
     validate: {
       payload: Joi.object({
-        consent: Joi.string().required()
+        hmmp: Joi.string().required()
       }),
       failAction: async (request, h, error) => {
         return h.view(eligibilityRoutes.view, { ...getYesNoRadios(eligibilityContent.title, eligibilityContent.name, null, eligibilityContent.error, eligibilityContent.options) }).code(400).takeover()
       }
     },
     handler: async (request, h) => {
-      const consent = request.payload.consent
-      setConsent(request, consent)
+      const habitatManagementPlan = request.payload.hmmp
+      setHabitatManagementPlan(request, habitatManagementPlan)
       return h.redirect(eligibilityRoutes.redirect.success)
     }
   }
