@@ -1,4 +1,4 @@
-const { process, get, statuses } = require('../../task-list')
+const { process, get, statuses } = require('../task-list')
 
 module.exports = {
   method: 'GET',
@@ -12,8 +12,7 @@ module.exports = {
         status: statuses.IN_PROGRESS,
         inProgressUrl: '/land/check-your-details'
       })
-      console.log(get(request))
-      return h.view('check/check-you-can-register')
+      return h.view('check-you-can-register')
     }
   }
 }
