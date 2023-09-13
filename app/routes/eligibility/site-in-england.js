@@ -1,35 +1,40 @@
 const Joi = require('joi')
-const eligibilityContent = require('../../constants/eligibility-content').siteInEngland
-const { process, get, statuses } = require('../../task-list')
-const { getInEngland, setInEngland } = require('../../session')
+const eligibilityRoutes = require('./constants/routes').siteInEngland
+const eligibilityContent = require('./constants/content').siteInEngland
+const { getInEngland, setInEngland } = require('./constants/session')
 const { getYesNoRadios } = require('../models/form-component/yes-no-radios')
 
 module.exports = [{
   method: 'GET',
-  path: '/land/site-in-england',
+  path: eligibilityRoutes.get,
   options: {
     handler: async (request, h) => {
       const inEngland = getInEngland(request)
-      return h.view('eligibility/site-in-england', { ...getYesNoRadios(eligibilityContent.title, eligibilityContent.name, inEngland, null, eligibilityContent.options) })
+      return h.view(eligibilityRoutes.view, { ...getYesNoRadios(eligibilityContent.title, eligibilityContent.name, inEngland, null, eligibilityContent.options) })
     }
   }
 },
 {
   method: 'POST',
-  path: '/land/site-in-england',
+  path: eligibilityRoutes.post,
   options: {
     validate: {
       payload: Joi.object({
         inEngland: Joi.string().required()
       }),
       failAction: async (request, h, error) => {
-        return h.view('eligibility/site-in-england', { ...getYesNoRadios(eligibilityContent.title, eligibilityContent.name, null, eligibilityContent.error, eligibilityContent.options) }).code(400).takeover()
+        return h.view(eligibilityRoutes.view, { ...getYesNoRadios(eligibilityContent.title, eligibilityContent.name, null, eligibilityContent.error, eligibilityContent.options) }).code(400).takeover()
       }
     },
     handler: async (request, h) => {
       const inEngland = request.payload.inEngland
       setInEngland(request, inEngland)
-      return h.view('eligibility/site-in-england', { ...getYesNoRadios(eligibilityContent.title, eligibilityContent.name, inEngland, null, eligibilityContent.options) })
+
+      if (inEngland === 'yes') {
+        return h.redirect(eligibilityRoutes.redirect.success)
+      } else {
+        return h.redirect(eligibilityRoutes.redirect.failure)
+      }
     }
   }
 }]

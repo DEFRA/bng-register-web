@@ -2,6 +2,8 @@ const routes = [].concat(
   require('../routes/home'),
   require('../routes/check-you-can-register'),
   require('../routes/eligibility/site-in-england'),
+  require('../routes/eligibility/consent'),
+  require('../routes/eligibility/legal-agreement'),
   require('../routes/cookie'),
   require('../routes/healthy'),
   require('../routes/healthz'),

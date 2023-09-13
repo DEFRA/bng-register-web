@@ -1,5 +1,5 @@
 function getYesNoRadios (legendText, id, previousAnswer, errorText = undefined, options = {}) {
-  const { isPageHeading = true, legendClasses = 'govuk-fieldset__legend--l', inline = false, hintText = '' } = options
+  const { isPageHeading = true, legendClasses = 'govuk-fieldset__legend--l', inline = false, hint = {} } = options
   return {
     radios: {
       classes: inline ? 'govuk-radios--inline' : undefined,
@@ -12,9 +12,7 @@ function getYesNoRadios (legendText, id, previousAnswer, errorText = undefined, 
           classes: legendClasses
         }
       },
-      hint: {
-        text: hintText
-      },
+      hint,
       items: [
         {
           value: 'yes',

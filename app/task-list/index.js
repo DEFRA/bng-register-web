@@ -1,6 +1,6 @@
 const sections = require('./sections')
 const statuses = require('./statuses')
-const { getTaskListDetails, setTaskListDetails } = require('../session')
+const { getTaskListDetails, setTaskListDetails } = require('./constants/session')
 
 const get = request => {
   const registrationTasks = getTaskListDetails(request)
