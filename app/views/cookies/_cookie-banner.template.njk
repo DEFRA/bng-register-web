@@ -28,11 +28,11 @@
   {% endset %}
 
   {{ govukCookieBanner({
-    ariaLabel: "Cookies on Calculate my progressive reductions",
+    ariaLabel: serviceName,
     classes: "js-cookies-banner",
     messages: [
       {
-        headingText: "Cookies on Calculate my progressive reductions",
+        headingText: "Cookies on " + serviceName,
         html: html,
         classes: "js-question-banner",
         actions: [

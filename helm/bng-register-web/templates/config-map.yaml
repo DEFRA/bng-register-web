@@ -1,7 +1,0 @@
-{{- include "ffc-helm-library.container-config-map" (list . "bng-register-web.config-map") -}}
-{{- define "bng-register-web.config-map" -}}
-data:
-  NODE_ENV: {{ quote .Values.environment }}
-  PORT: {{ quote .Values.container.port }}
-  APPINSIGHTS_CLOUDROLE: {{ quote .Values.name }}
-{{- end -}}

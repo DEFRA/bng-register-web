@@ -1,3 +1,0 @@
-{{- include "ffc-helm-library.cluster-ip-service" (list . "bng-register-web.cluster-ip-service") -}}
-{{- define "bng-register-web.cluster-ip-service" -}}
-{{- end -}}
