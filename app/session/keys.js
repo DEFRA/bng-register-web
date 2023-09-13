@@ -1,5 +1,8 @@
 module.exports = {
-  answers: {
-    bob: 'bob'
+  taskList: {
+    registrationTaskDetails: 'registrationTaskDetails'
+  },
+  eligibility: {
+    inEngland: 'inEngland',
   }
 }

@@ -1,0 +1,7 @@
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+{% macro error(err) %}
+  {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: err
+  }) }}
+{% endmacro %}

@@ -16,7 +16,7 @@ const process = (request, taskDetails, options) => {
     }
     task.inProgressUrl = options.inProgressUrl || task.inProgressUrl
   });
-  getTaskListDetails(request, registrationTasks)
+  setTaskListDetails(request, registrationTasks)
 }
 
 module.exports = { 
