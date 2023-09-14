@@ -1,4 +1,3 @@
-const Joi = require('joi')
 const eligibilityRoutes = require('./constants/routes').results
 const eligibilityContent = require('./constants/content').results
 const { getResults } = require('./constants/session')

@@ -27,7 +27,7 @@ module.exports = [{
       }
     },
     handler: async (request, h) => {
-      const boundary= request.payload.boundary
+      const boundary = request.payload.boundary
       setBoundary(request, boundary)
       return h.redirect(eligibilityRoutes.redirect.success)
     }

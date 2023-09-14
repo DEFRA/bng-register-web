@@ -1,4 +1,4 @@
-const { process, get, statuses } = require('../task-list')
+const { process, statuses } = require('../task-list')
 
 module.exports = {
   method: 'GET',

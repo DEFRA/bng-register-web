@@ -70,7 +70,7 @@ module.exports = {
     name: 'metric',
     options: {
       hint: {
-        html: `You need to calculate the biodiversity value of the land using <a href='http://publications.naturalengland.org.uk/publication/6049804846366720'>Natural England's biodiversity metric</a>.`
+        html: 'You need to calculate the biodiversity value of the land using <a href="http://publications.naturalengland.org.uk/publication/6049804846366720">Natural England\'s biodiversity metric</a>.'
       }
     }
   },

@@ -21,11 +21,11 @@ const process = (request, taskDetails, options) => {
       task.status = options.status
     }
     task.inProgressUrl = options.inProgressUrl || task.inProgressUrl
-  });
+  })
   setTaskListDetails(request, registrationTasks)
 }
 
-module.exports = { 
+module.exports = {
   get,
   process,
   statuses

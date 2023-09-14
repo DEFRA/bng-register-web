@@ -1,7 +1,7 @@
 const Joi = require('joi')
 const eligibilityRoutes = require('./constants/routes').consent
 const eligibilityContent = require('./constants/content').consent
-const { getConsent, setConsent, getInEngland } = require('./constants/session')
+const { getConsent, setConsent } = require('./constants/session')
 const { getYesNoRadios } = require('../models/form-component/yes-no-radios')
 
 module.exports = [{

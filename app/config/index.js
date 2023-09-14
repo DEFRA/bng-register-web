@@ -84,7 +84,6 @@ value.isDev = value.env === 'development'
 value.isTest = value.env === 'test'
 value.isProd = value.env === 'production'
 
-
 value.catboxOptions = {
   host: value.redisHost,
   port: value.redisPort,

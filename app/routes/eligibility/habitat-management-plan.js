@@ -9,7 +9,7 @@ module.exports = [{
   path: eligibilityRoutes.get,
   options: {
     handler: async (request, h) => {
-      const habitatManagementPlan = setHabitatManagementPlan(request)
+      const habitatManagementPlan = getHabitatManagementPlan(request)
       return h.view(eligibilityRoutes.view, { ...getYesNoRadios(eligibilityContent.title, eligibilityContent.name, habitatManagementPlan, null, eligibilityContent.options) })
     }
   }

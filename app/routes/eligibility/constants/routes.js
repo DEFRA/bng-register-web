@@ -3,7 +3,7 @@ module.exports = {
     get: '/land/site-in-england',
     post: '/land/site-in-england',
     view: 'eligibility/site-in-england',
-    redirect: { 
+    redirect: {
       success: 'consent',
       fail: 'cannot-continue'
     }
@@ -13,7 +13,7 @@ module.exports = {
     post: '/land/consent',
     view: 'eligibility/consent',
     redirect: {
-      success: 'legal-agreement',
+      success: 'legal-agreement'
     }
   },
   legalAgreement: {
@@ -21,7 +21,7 @@ module.exports = {
     post: '/land/legal-agreement',
     view: 'eligibility/legal-agreement',
     redirect: {
-      success: 'ownership-proof',
+      success: 'ownership-proof'
     }
   },
   ownershipProof: {
@@ -29,7 +29,7 @@ module.exports = {
     post: '/land/ownership-proof',
     view: 'eligibility/ownership-proof',
     redirect: {
-      success: 'boundary',
+      success: 'boundary'
     }
   },
   boundary: {
@@ -37,7 +37,7 @@ module.exports = {
     post: '/land/boundary',
     view: 'eligibility/boundary',
     redirect: {
-      success: 'biodiversity-metric',
+      success: 'biodiversity-metric'
     }
   },
   biodiversityMetric: {
@@ -45,7 +45,7 @@ module.exports = {
     post: '/land/biodiversity-metric',
     view: 'eligibility/biodiversity-metric',
     redirect: {
-      success: 'habitat-management-plan',
+      success: 'habitat-management-plan'
     }
   },
   habitatManagementPlan: {
@@ -53,7 +53,7 @@ module.exports = {
     post: '/land/habitat-management-plan',
     view: 'eligibility/habitat-management-plan',
     redirect: {
-      success: 'results',
+      success: 'results'
     }
   },
   results: {
@@ -61,7 +61,7 @@ module.exports = {
     post: '/land/results',
     view: 'eligibility/results',
     redirect: {
-      success: 'name',
+      success: 'name'
     }
   }
 }

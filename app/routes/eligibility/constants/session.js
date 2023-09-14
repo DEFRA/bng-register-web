@@ -2,7 +2,7 @@ const { get, set } = require('../../../session')
 const keys = require('./keys')
 
 const entries = {
-  eligibility: 'eligibility',
+  eligibility: 'eligibility'
 }
 
 const getInEngland = (request) => {
@@ -65,7 +65,7 @@ const getResults = (request) => {
   const eligibilityResults = {
     yes: [],
     no: [],
-    'not sure': [],
+    'not sure': []
   }
 
   for (const key in keys.eligibility) {

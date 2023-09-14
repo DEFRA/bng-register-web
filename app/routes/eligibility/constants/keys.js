@@ -1,6 +1,6 @@
 module.exports = {
   check: {
-    inEngland: 'inEngland',
+    inEngland: 'inEngland'
   },
   eligibility: {
     consent: 'consent',
@@ -8,6 +8,6 @@ module.exports = {
     ownershipProof: 'ownershipProof',
     boundary: 'boundary',
     biodiversityMetric: 'biodiversityMetric',
-    habitatManagementPlan: 'habitatManagementPlan',
+    habitatManagementPlan: 'habitatManagementPlan'
   }
 }
