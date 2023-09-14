@@ -1,8 +1,8 @@
 environment: production
 environmentCode:
 name: bng-register-web
-namespace: bng-public
-workstream: bng-public
+namespace: bng-credits
+workstream: bng-credits
 image: bng-register-web
 
 labels:
