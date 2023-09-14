@@ -40,7 +40,6 @@ container:
   redisPartition: bng-register-web
   redisPassword: redis
   redisPort: 6379
-  serviceUri:
 
 ingress:
   class: nginx
