@@ -4,7 +4,13 @@ const { getTaskListDetails, setTaskListDetails } = require('./constants/session'
 
 const get = request => {
   const registrationTasks = getTaskListDetails(request)
-  return registrationTasks || JSON.parse(JSON.stringify(sections))
+
+  if (!registrationTasks) {
+    console.log('No registration tasks found in session, using default')
+    return JSON.parse(JSON.stringify(sections))
+  }
+
+  return registrationTasks
 }
 
 const process = (request, taskDetails, options) => {
