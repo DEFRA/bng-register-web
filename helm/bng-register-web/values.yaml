@@ -8,6 +8,10 @@ image: bng-register-web
 labels:
   component: service
 
+azureIdentity:
+  clientID: not-a-real-clientID
+  resourceID: not-a-real-resourceID
+
 appInsights:
   connectionString:
 
@@ -34,6 +38,10 @@ container:
   limitMemory: 100Mi
   limitCpu: 100m
   port: 3000
+  azureStorageAccountName: bngregister
+  azureStorageConnectionString: dummy
+  azureStorageUseConnectionString: false
+  azureStorageCreateContainers: false
   cookiePassword: who-likes-cookies-i-like-cookies-everybody-likes-cookies
   imagePullPolicy: IfNotPresent
   redisHostname: redis-hostname.default
@@ -65,3 +73,5 @@ readinessProbe:
 service:
   port: 80
   type: ClusterIP
+
+aadPodIdentity: true
