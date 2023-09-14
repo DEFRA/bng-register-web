@@ -10,6 +10,7 @@ const routes = [].concat(
   require('../routes/eligibility/biodiversity-metric'),
   require('../routes/eligibility/habitat-management-plan'),
   require('../routes/eligibility/results'),
+  require('../routes/upload/upload-land-boundary'),
   require('../routes/cookie'),
   require('../routes/healthy'),
   require('../routes/healthz'),

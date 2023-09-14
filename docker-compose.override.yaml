@@ -13,6 +13,16 @@ services:
     volumes:
       - ./app:/home/node/app
       - ./package.json:/home/node/package.json
+    environment:
+      AZURE_STORAGE_CONNECTION_STRING: DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://bng-register-web-azurite:10000/devstoreaccount1;
+    depends_on:
+      - bng-register-web-azurite
+
+  bng-register-web-azurite:
+    volumes:
+      - azurite_data:/data
+    ports:
+      - "10000:10000"
 
   redis:
     image: redis:4.0.14
@@ -23,3 +33,4 @@ services:
 
 volumes:
   redis_data:
+  azurite_data:
