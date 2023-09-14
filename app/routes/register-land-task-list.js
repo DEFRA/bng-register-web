@@ -5,13 +5,14 @@ module.exports = {
   path: '/land/register-land-task-list',
   options: {
     handler: async (request, h) => {
-      let completedTasks = 0
-      let totalTasks = 0
+      const completedTasks = 0
+      const totalTasks = 0
       const registrationTasks = get(request).registrationTaskDetails
-      return h.view('register-land-task-list', { 
-        registrationTasks, 
+      return h.view('register-land-task-list', {
+        registrationTasks,
         registrationCompletedTasks: completedTasks,
-        totalSections: totalTasks  })
+        totalSections: totalTasks
+      })
     }
   }
 }
