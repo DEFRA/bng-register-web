@@ -1,5 +1,5 @@
 {{- if .Values.aadPodIdentity }}
 {{- include "ffc-helm-library.azure-identity" (list . "bng-register-web.azure-identity") -}}
 {{- end }}
-{{- define "bng-register-webazure-identity" -}}
+{{- define "bng-register-web.azure-identity" -}}
 {{- end -}}
