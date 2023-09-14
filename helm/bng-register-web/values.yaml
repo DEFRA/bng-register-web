@@ -1,0 +1,70 @@
+environment: production
+environmentCode:
+name: bng-register-web
+namespace: bng-public
+workstream: bng-public
+image: bng-register-web
+
+labels:
+  component: service
+
+appInsights:
+  connectionString:
+
+containerConfigMap:
+  name: bng-register-web-config-map
+
+containerSecret:
+  name: bng-register-web-container-secret
+  type: Opaque
+
+deployment:
+  cpuThreshold: 80
+  memoryThreshold: 80
+  minReadySeconds: 0
+  minReplicas: 2
+  maxReplicas: 4
+  priorityClassName: high
+  replicas: 2
+  restartPolicy: Always
+
+container:
+  requestMemory: 100Mi
+  requestCpu: 100m
+  limitMemory: 100Mi
+  limitCpu: 100m
+  port: 3000
+  cookiePassword: who-likes-cookies-i-like-cookies-everybody-likes-cookies
+  imagePullPolicy: IfNotPresent
+  redisHostname: redis-hostname.default
+  redisPartition: bng-register-web
+  redisPassword: redis
+  redisPort: 6379
+  serviceUri:
+
+ingress:
+  class: nginx
+  endpoint: bng-register-web
+  server: value.replaced.from.app.config
+  path: /apply
+  type: minion
+
+livenessProbe:
+  path: /healthz
+  port: 3000
+  initialDelaySeconds: 20
+  periodSeconds: 10
+  failureThreshold: 3
+  timeoutSeconds: 5
+
+readinessProbe:
+  path: /healthy
+  port: 3000
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  failureThreshold: 3
+  timeoutSeconds: 5
+
+service:
+  port: 80
+  type: ClusterIP

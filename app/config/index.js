@@ -5,6 +5,7 @@ const schema = Joi.object({
   serviceName: Joi.string().default('Register land as a biodiversity gain site'),
   port: Joi.number().default(3001),
   env: Joi.string().valid('development', 'test', 'production').default('development'),
+  useRedis: Joi.boolean().default(false),
   cache: {
     expiresIn: Joi.number().default(1000 * 3600 * 24 * 3), // 3 days
     options: {
@@ -39,6 +40,7 @@ const config = {
   serviceName: process.env.SERVICE_NAME,
   port: process.env.PORT,
   env: process.env.NODE_ENV,
+  useRedis: process.env.NODE_ENV !== 'test',
   cache: {
     options: {
       host: process.env.REDIS_HOSTNAME,

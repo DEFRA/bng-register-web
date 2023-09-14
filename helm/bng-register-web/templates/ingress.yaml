@@ -1,0 +1,3 @@
+{{- include "ffc-helm-library.azure-ingress" (list . "bng-register-web.ingress") -}}
+{{- define "bng-register-web.ingress" -}}
+{{- end -}}

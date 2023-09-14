@@ -2,6 +2,7 @@ $govuk-assets-path: "~govuk-frontend/govuk/assets/";
 $govuk-global-styles: true;
 
 @import "~govuk-frontend/govuk/all";
+@import "./app-task-list";
 
 .nojs-hidden {
   display: none;
