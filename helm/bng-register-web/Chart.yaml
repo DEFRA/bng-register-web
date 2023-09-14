@@ -1,5 +1,5 @@
 apiVersion: v2
-description: API to expose BNG public register
+description: Web frontend for BNG register journey
 name: bng-register-web
 # this version is automatically updated in the build pipeline
 version: 1.0.0
