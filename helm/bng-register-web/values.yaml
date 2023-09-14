@@ -23,7 +23,7 @@ deployment:
   memoryThreshold: 80
   minReadySeconds: 0
   minReplicas: 1
-  maxReplicas: 2
+  maxReplicas: 1
   priorityClassName: low
   replicas: 1
   restartPolicy: Always
