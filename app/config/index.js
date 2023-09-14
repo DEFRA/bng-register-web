@@ -5,14 +5,24 @@ const schema = Joi.object({
   serviceName: Joi.string().default('Register land as a biodiversity gain site'),
   port: Joi.number().default(3001),
   env: Joi.string().valid('development', 'test', 'production').default('development'),
-  cacheName: Joi.string(),
-  redisHost: Joi.string(),
-  redisPort: Joi.number().default(6379),
-  redisPassword: Joi.string().default(''),
-  redisPartition: Joi.string().default('ffc-pay-request-editor'),
-  cookiePassword: Joi.string().required(),
-  sessionTimeoutMinutes: Joi.number().default(30),
-  staticCacheTimeoutMillis: Joi.number().default(7 * 24 * 60 * 60 * 1000), // 1 day
+  cache: {
+    expiresIn: Joi.number().default(1000 * 3600 * 24 * 3), // 3 days
+    options: {
+      host: Joi.string().default('redis-hostname.default'),
+      partition: Joi.string().default('bng-register-web'),
+      password: Joi.string().allow(''),
+      port: Joi.number().default(6379),
+      tls: Joi.object()
+    }
+  },
+  cookie: {
+    cookieNameCookiePolicy: Joi.string().default('bng_register_cookie_policy'),
+    cookieNameSession: Joi.string().default('bng_register_session'),
+    isSameSite: Joi.string().default('Lax'),
+    isSecure: Joi.boolean().default(true),
+    password: Joi.string().min(32).required(),
+    ttl: Joi.number().default(1000 * 3600 * 24 * 3) // 3 days
+  },
   cookieOptions: Joi.object({
     ttl: Joi.number().default(1000 * 60 * 60 * 24 * 365),
     isSameSite: Joi.string().valid('Lax').default('Lax'),
@@ -29,14 +39,21 @@ const config = {
   serviceName: process.env.SERVICE_NAME,
   port: process.env.PORT,
   env: process.env.NODE_ENV,
-  cacheName: 'redisCache',
-  redisPartition: process.env.REDIS_PARTITION,
-  redisHost: process.env.REDIS_HOSTNAME,
-  redisPort: process.env.REDIS_PORT,
-  redisPassword: process.env.REDIS_PASSWORD,
-  cookiePassword: process.env.COOKIE_PASSWORD,
-  sessionTimeoutMinutes: process.env.SESSION_TIMEOUT_IN_MINUTES,
-  staticCacheTimeoutMillis: process.env.STATIC_CACHE_TIMEOUT_IN_MILLIS,
+  cache: {
+    options: {
+      host: process.env.REDIS_HOSTNAME,
+      password: process.env.REDIS_PASSWORD,
+      port: process.env.REDIS_PORT,
+      tls: process.env.NODE_ENV === 'production' ? {} : undefined
+    }
+  },
+  cookie: {
+    cookieNameCookiePolicy: 'bng_register_cookie_policy',
+    cookieNameSession: 'bng_register_session',
+    isSameSite: 'Lax',
+    isSecure: process.env.NODE_ENV === 'production',
+    password: process.env.COOKIE_PASSWORD
+  },
   cookieOptions: {
     ttl: process.env.COOKIE_TTL_IN_MILLIS,
     isSameSite: 'Lax',

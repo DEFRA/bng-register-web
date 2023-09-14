@@ -3,9 +3,6 @@
 {% from "govuk/components/phase-banner/macro.njk"  import govukPhaseBanner %}
 
 {% block head %}
-  {% if cookiesPolicy and cookiesPolicy.analytics %}
-    {% include "./tag-manager/_head-content.njk" %}
-  {% endif %}
   <!--[if !IE 8]><!-->
   <% htmlWebpackPlugin.files.css.forEach(file => { %>
   <link href="<%= file.replace('../dist/', '/static/') %>" rel="stylesheet">
@@ -36,10 +33,6 @@
 {% block bodyStart %}
   {% if cookiesPolicy and not cookiesPolicy.confirmed %}
     {% include "./cookies/_cookie-banner.njk" %}
-  {% endif %}
-
-  {% if cookiesPolicy and cookiesPolicy.analytics %}
-    {% include "./tag-manager/_body-content.njk" %}
   {% endif %}
 {% endblock %}
 

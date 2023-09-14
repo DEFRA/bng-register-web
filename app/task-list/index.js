@@ -8,7 +8,7 @@ const get = request => {
 }
 
 const process = (request, taskDetails, options) => {
-  const registrationTasks = get(request)
+  const registrationTasks = get(request).registrationTaskDetails
   const affectedTask = registrationTasks.taskList.find(task => task.taskTitle === taskDetails.taskTitle)
   affectedTask.tasks.forEach(task => {
     if (task.title === taskDetails.title && task.status !== statuses.COMPLETED && options.status) {

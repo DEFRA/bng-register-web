@@ -8,5 +8,7 @@ services:
     environment:
       APPINSIGHTS_CLOUDROLE: bng-register-web-local
       APPINSIGHTS_INSTRUMENTATIONKEY: ${APPINSIGHTS_INSTRUMENTATIONKEY}
-      REDIS_HOSTNAME: redis
       COOKIE_PASSWORD: cookiecookiecookiecookiecookiecookie
+      REDIS_HOSTNAME: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ""
