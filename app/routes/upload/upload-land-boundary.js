@@ -35,7 +35,15 @@ module.exports = [{
       const stream = new Readable()
       stream.push(fileBuffer)
       stream.push(null)
-      await uploadInboundFile(stream, filename)
+      const blobClient = await uploadInboundFile(stream, filename)
+
+      for (let i = 0; i < 5; i++) {
+        const tags = await blobClient.getTags()
+        console.log('TAGS:')
+        console.log(tags)
+        await new Promise(resolve => setTimeout(resolve, 1000))
+      }
+
       return h.view('upload/upload-land-boundary')
     }
   }

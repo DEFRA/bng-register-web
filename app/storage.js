@@ -66,6 +66,8 @@ const uploadInboundFile = async (stream, filename) => {
   const blockBlobClient = await getBlob(config.inboundFolder, filename)
   await blockBlobClient.uploadStream(stream,
     uploadOptions.bufferSize, uploadOptions.maxBuffers)
+
+  return blockBlobClient
 }
 
 module.exports = {
