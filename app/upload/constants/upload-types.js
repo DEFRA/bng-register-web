@@ -1,3 +1,3 @@
 module.exports = {
-  LAND_BOUNDARY: 'land-Boundary'
+  LAND_BOUNDARY: 'land-boundary'
 }
