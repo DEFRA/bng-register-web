@@ -1,7 +1,7 @@
 const upload = require('../../upload')
-const { LAND_BOUNDARY } = require('../../upload/constants/upload-types')
+const { METRIC } = require('../../upload/constants/upload-types')
 
-const route = 'upload-land-boundary'
+const route = 'upload-metric'
 
 module.exports = [{
   method: 'GET',
@@ -32,7 +32,7 @@ module.exports = [{
       }
     },
     handler: async (request, h) => {
-      await upload(request, LAND_BOUNDARY)
+      await upload(request, METRIC)
       return h.view(`upload/${route}`)
     }
   }
