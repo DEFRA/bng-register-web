@@ -1,5 +1,5 @@
 const upload = require('../../upload')
-const { LAND_BOUNDARY } = require('../upload/constants/upload-types')
+const { LAND_BOUNDARY } = require('../../upload/constants/upload-types')
 
 module.exports = [{
   method: 'GET',
