@@ -2,7 +2,10 @@ const path = require('path')
 const allowedFileExtensions = require('./constants/allowed-file-extensions').fileExtensions
 
 const checkFileExtension = (fileName) => {
-  return allowedFileExtensions.includes(path.extname(fileName).substring(1))
+  const fileExtensionAllowed = allowedFileExtensions.includes(path.extname(fileName).substring(1))
+  if (!fileExtensionAllowed) {
+    throw new Error('File extension not allowed')
+  }
 }
 
 const checkFileSize = (fileBuffer) => {
@@ -19,11 +22,7 @@ const checkFileSize = (fileBuffer) => {
 
 const validateFile = (fileName, fileBuffer) => {
   if (!fileName) throw new Error('No file name')
-
-  if (!checkFileExtension(fileName)) {
-    throw new Error('File extension not allowed')
-  }
-
+  checkFileExtension(fileName)
   checkFileSize(fileBuffer)
 }
 
