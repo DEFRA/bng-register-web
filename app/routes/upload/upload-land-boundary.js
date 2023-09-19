@@ -1,11 +1,11 @@
 const upload = require('../../upload')
 const { LAND_BOUNDARY } = require('../../upload/constants/upload-types')
 
-const route = 'upload-land-boundary'
+const route = '/upload-land-boundary'
 
 module.exports = [{
   method: 'GET',
-  path: `/land/${route}`,
+  path: route,
   options: {
     handler: async (request, h) => {
       return h.view(`upload/${route}`)
@@ -14,7 +14,7 @@ module.exports = [{
 },
 {
   method: 'POST',
-  path: `/land/${route}`,
+  path: route,
   options: {
     plugins: {
       crumb: false
