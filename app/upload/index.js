@@ -1,4 +1,4 @@
-const { uuid } = require('uuidv4')
+const { uuid } = require('uuid')
 const convertToStream = require('./convert-to-stream')
 const checkFileScan = require('./check-file-scan')
 const { getFileGroupReference, setFileGroupReference } = require('./constants/session')
