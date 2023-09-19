@@ -1,11 +1,11 @@
 const upload = require('../../upload')
 const { OWNERSHIP } = require('../../upload/constants/upload-types')
 
-const route = 'upload-ownership-proof'
+const route = '/upload-ownership-proof'
 
 module.exports = [{
   method: 'GET',
-  path: `/land/${route}`,
+  path: route,
   options: {
     handler: async (request, h) => {
       return h.view(`upload/${route}`)
@@ -14,7 +14,7 @@ module.exports = [{
 },
 {
   method: 'POST',
-  path: `/land/${route}`,
+  path: route,
   options: {
     plugins: {
       crumb: false

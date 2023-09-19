@@ -1,11 +1,11 @@
 const upload = require('../../upload')
 const { GEOSPATIAL } = require('../../upload/constants/upload-types')
 
-const route = 'upload-geospatial-file'
+const route = '/upload-geospatial-file'
 
 module.exports = [{
   method: 'GET',
-  path: `/land/${route}`,
+  path: route,
   options: {
     handler: async (request, h) => {
       return h.view(`upload/${route}`)
@@ -14,7 +14,7 @@ module.exports = [{
 },
 {
   method: 'POST',
-  path: `/land/${route}`,
+  path: route,
   options: {
     plugins: {
       crumb: false

@@ -1,11 +1,11 @@
 const upload = require('../../upload')
 const { LOCAL_LAND_CHARGE } = require('../../upload/constants/upload-types')
 
-const route = 'upload-local-land-charge'
+const route = '/upload-local-land-charge'
 
 module.exports = [{
   method: 'GET',
-  path: `/land/${route}`,
+  path: route,
   options: {
     handler: async (request, h) => {
       return h.view(`upload/${route}`)
@@ -14,7 +14,7 @@ module.exports = [{
 },
 {
   method: 'POST',
-  path: `/land/${route}`,
+  path: route,
   options: {
     plugins: {
       crumb: false
