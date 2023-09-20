@@ -1,20 +1,19 @@
 const upload = require('../../upload')
 const { OWNERSHIP } = require('../../upload/constants/upload-types')
-
-const route = '/upload-ownership-proof'
+const { uploadOwnershipProof } = require('./constants/routes')
 
 module.exports = [{
   method: 'GET',
-  path: route,
+  path: uploadOwnershipProof.get,
   options: {
     handler: async (request, h) => {
-      return h.view(`upload/${route}`)
+      return h.view(uploadOwnershipProof.view)
     }
   }
 },
 {
   method: 'POST',
-  path: route,
+  path: uploadOwnershipProof.post,
   options: {
     plugins: {
       crumb: false
@@ -28,12 +27,12 @@ module.exports = [{
       allow: 'multipart/form-data',
       failAction: (request, h, err) => {
         console.log(err)
-        return h.view(`upload/${route}`).takeover(400)
+        return h.view(uploadOwnershipProof.view).takeover(400)
       }
     },
     handler: async (request, h) => {
       await upload(request, OWNERSHIP)
-      return h.view(`upload/${route}`)
+      return h.view(uploadOwnershipProof.view)
     }
   }
 }]

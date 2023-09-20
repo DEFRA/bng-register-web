@@ -1,20 +1,19 @@
 const upload = require('../../upload')
 const { LOCAL_LAND_CHARGE } = require('../../upload/constants/upload-types')
-
-const route = '/upload-local-land-charge'
+const { uploadLocalLandCharge } = require('./constants/routes')
 
 module.exports = [{
   method: 'GET',
-  path: route,
+  path: uploadLocalLandCharge.get,
   options: {
     handler: async (request, h) => {
-      return h.view(`upload/${route}`)
+      return h.view(uploadLocalLandCharge.view)
     }
   }
 },
 {
   method: 'POST',
-  path: route,
+  path: uploadLocalLandCharge.post,
   options: {
     plugins: {
       crumb: false
@@ -28,12 +27,12 @@ module.exports = [{
       allow: 'multipart/form-data',
       failAction: (request, h, err) => {
         console.log(err)
-        return h.view(`upload/${route}`).takeover(400)
+        return h.view(uploadLocalLandCharge.view).takeover(400)
       }
     },
     handler: async (request, h) => {
       await upload(request, LOCAL_LAND_CHARGE)
-      return h.view(`upload/${route}`)
+      return h.view(uploadMetric.view)
     }
   }
 }]

@@ -1,20 +1,19 @@
 const upload = require('../../upload')
 const { METRIC } = require('../../upload/constants/upload-types')
-
-const route = '/upload-metric'
+const { uploadMetric } = require('./constants/routes')
 
 module.exports = [{
   method: 'GET',
-  path: route,
+  path: uploadMetric.get,
   options: {
     handler: async (request, h) => {
-      return h.view(`upload/${route}`)
+      return h.view(uploadMetric.view)
     }
   }
 },
 {
   method: 'POST',
-  path: route,
+  path: uploadMetric.post,
   options: {
     plugins: {
       crumb: false
@@ -28,12 +27,12 @@ module.exports = [{
       allow: 'multipart/form-data',
       failAction: (request, h, err) => {
         console.log(err)
-        return h.view(`upload/${route}`).takeover(400)
+        return h.view(uploadMetric.view).takeover(400)
       }
     },
     handler: async (request, h) => {
       await upload(request, METRIC)
-      return h.view(`upload/${route}`)
+      return h.view(uploadMetric.view)
     }
   }
 }]
