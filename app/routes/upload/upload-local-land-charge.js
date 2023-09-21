@@ -32,7 +32,7 @@ module.exports = [{
     },
     handler: async (request, h) => {
       await upload(request, LOCAL_LAND_CHARGE)
-      return h.view(uploadMetric.view)
+      return h.view(uploadLocalLandCharge.view)
     }
   }
 }]

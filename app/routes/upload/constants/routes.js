@@ -33,5 +33,5 @@ module.exports = {
     get: '/upload-ownership-proof',
     post: '/upload-ownership-proof',
     view: 'upload/upload-ownership-proof'
-  },
+  }
 }
