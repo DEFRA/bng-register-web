@@ -2,7 +2,7 @@ const { process, statuses } = require('../task-list')
 
 module.exports = {
   method: 'GET',
-  path: '/land/check-you-can-register',
+  path: '/check-you-can-register',
   options: {
     handler: async (request, h) => {
       process(request, {
@@ -10,7 +10,7 @@ module.exports = {
         title: 'Add your details'
       }, {
         status: statuses.IN_PROGRESS,
-        inProgressUrl: '/land/check-your-details'
+        inProgressUrl: '/check-your-details'
       })
       return h.view('check-you-can-register')
     }

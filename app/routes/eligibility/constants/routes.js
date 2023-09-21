@@ -1,7 +1,7 @@
 module.exports = {
   siteInEngland: {
-    get: '/land/site-in-england',
-    post: '/land/site-in-england',
+    get: '/site-in-england',
+    post: '/site-in-england',
     view: 'eligibility/site-in-england',
     redirect: {
       success: 'consent',
@@ -9,56 +9,56 @@ module.exports = {
     }
   },
   consent: {
-    get: '/land/consent',
-    post: '/land/consent',
+    get: '/consent',
+    post: '/consent',
     view: 'eligibility/consent',
     redirect: {
       success: 'legal-agreement'
     }
   },
   legalAgreement: {
-    get: '/land/legal-agreement',
-    post: '/land/legal-agreement',
+    get: '/legal-agreement',
+    post: '/legal-agreement',
     view: 'eligibility/legal-agreement',
     redirect: {
       success: 'ownership-proof'
     }
   },
   ownershipProof: {
-    get: '/land/ownership-proof',
-    post: '/land/ownership-proof',
+    get: '/ownership-proof',
+    post: '/ownership-proof',
     view: 'eligibility/ownership-proof',
     redirect: {
       success: 'boundary'
     }
   },
   boundary: {
-    get: '/land/boundary',
-    post: '/land/boundary',
+    get: '/boundary',
+    post: '/boundary',
     view: 'eligibility/boundary',
     redirect: {
       success: 'biodiversity-metric'
     }
   },
   biodiversityMetric: {
-    get: '/land/biodiversity-metric',
-    post: '/land/biodiversity-metric',
+    get: '/biodiversity-metric',
+    post: '/biodiversity-metric',
     view: 'eligibility/biodiversity-metric',
     redirect: {
       success: 'habitat-management-plan'
     }
   },
   habitatManagementPlan: {
-    get: '/land/habitat-management-plan',
-    post: '/land/habitat-management-plan',
+    get: '/habitat-management-plan',
+    post: '/habitat-management-plan',
     view: 'eligibility/habitat-management-plan',
     redirect: {
       success: 'results'
     }
   },
   results: {
-    get: '/land/results',
-    post: '/land/results',
+    get: '/results',
+    post: '/results',
     view: 'eligibility/results',
     redirect: {
       success: 'name'

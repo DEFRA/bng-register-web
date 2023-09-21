@@ -61,9 +61,9 @@ const getInboundFileDetails = async (filename) => {
   return blob.getProperties()
 }
 
-const uploadInboundFile = async (stream, filename) => {
+const uploadInboundFile = async (stream, folder, filename) => {
   containersInitialised ?? await initialiseContainers()
-  const blockBlobClient = await getBlob(config.inboundFolder, filename)
+  const blockBlobClient = await getBlob(`${config.inboundFolder}/${folder}`, filename)
   await blockBlobClient.uploadStream(stream,
     uploadOptions.bufferSize, uploadOptions.maxBuffers)
 

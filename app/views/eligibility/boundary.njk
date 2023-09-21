@@ -9,7 +9,7 @@
       {% endif %}
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-          <form method="POST" action="/land/boundary" novalidate>
+          <form method="POST" action="/boundary" novalidate>
             <input type="hidden" name="crumb" value="{{crumb}}"/>
             {{ govukRadios(radios) }}
 

@@ -2,7 +2,7 @@ const { get } = require('../task-list')
 
 module.exports = {
   method: 'GET',
-  path: '/land/register-land-task-list',
+  path: '/register-land-task-list',
   options: {
     handler: async (request, h) => {
       const completedTasks = 0

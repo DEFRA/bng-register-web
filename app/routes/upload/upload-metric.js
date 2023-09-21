@@ -1,19 +1,19 @@
 const upload = require('../../upload')
-const { LAND_BOUNDARY } = require('../../upload/constants/upload-types')
-const { uploadLandBoundary } = require('./constants/routes')
+const { METRIC } = require('../../upload/constants/upload-types')
+const { uploadMetric } = require('./constants/routes')
 
 module.exports = [{
   method: 'GET',
-  path: uploadLandBoundary.get,
+  path: uploadMetric.get,
   options: {
     handler: async (request, h) => {
-      return h.view(uploadLandBoundary.view)
+      return h.view(uploadMetric.view)
     }
   }
 },
 {
   method: 'POST',
-  path: uploadLandBoundary.post,
+  path: uploadMetric.post,
   options: {
     plugins: {
       crumb: false
@@ -27,12 +27,12 @@ module.exports = [{
       allow: 'multipart/form-data',
       failAction: (request, h, err) => {
         console.log(err)
-        return h.view(uploadLandBoundary.view).takeover(400)
+        return h.view(uploadMetric.view).takeover(400)
       }
     },
     handler: async (request, h) => {
-      await upload(request, LAND_BOUNDARY)
-      return h.view(uploadLandBoundary.view)
+      await upload(request, METRIC)
+      return h.view(uploadMetric.view)
     }
   }
 }]
